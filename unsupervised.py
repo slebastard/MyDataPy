@@ -5,6 +5,8 @@
 ## REQUIREMENTS ##################################
 
 ### External requirements ########################
+import importlib
+
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
@@ -13,10 +15,8 @@ from scipy.stats import multivariate_normal
 from matplotlib.patches import Ellipse
 import math
 
-%matplotlib inline
-
 ### Internal requirements ########################
-import dataProcessing.py
+importlib.import_module('dataTools')
 
 #################################################
 
@@ -87,7 +87,7 @@ class Kmeans:
       stop = self.assignCentroids()
       self.computeCentroids()
       itCount += 1
-    print 'Convergence in {0:2d} iterations \n \n'.format(itCount)
+    print('Convergence in {0:2d} iterations \n \n'.format(itCount))
  
 
 
@@ -125,7 +125,7 @@ class Kmeans:
     globDistrt = np.nanmean(interDist*interDist)
 
     # Print general statistics
-    print 'Average inter-cluster distortion: {0:.2f} \n \n'.format(np.sqrt(globDistrt))
+    print('Average inter-cluster distortion: {0:.2f} \n \n'.format(np.sqrt(globDistrt)))
     
     # Print statistics per cluster
     for k in range(self.K):
@@ -134,10 +134,10 @@ class Kmeans:
       relDistrt[k] = distrt[k]/globDistrt
       
       effectives = effectives.astype(int)
-      print 'Cluster {0:3d}: {1:3d} entities'.format(k,effectives[k])
-      print 'intra-cluster avg distortion {0:.2f}. Relative distortion {1:.2f}% \n'.format(np.sqrt(distrt[k]),100*np.sqrt(relDistrt[k]))
+      print('Cluster {0:3d}: {1:3d} entities'.format(k,effectives[k]))
+      print('intra-cluster avg distortion {0:.2f}. Relative distortion {1:.2f}% \n'.format(np.sqrt(distrt[k]),100*np.sqrt(relDistrt[k])))
     
-    print 'Average relative distortion: {0:.2f}%'.format(np.average(100*np.sqrt(relDistrt),weights=effectives))
+    print('Average relative distortion: {0:.2f}%'.format(np.average(100*np.sqrt(relDistrt),weights=effectives)))
     
     return [np.average(100*np.sqrt(relDistrt),weights=effectives),distrt,relDistrt]
 

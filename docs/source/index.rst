@@ -10,6 +10,12 @@ Welcome to MyDataPy's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   requirements
+   philosophy
+   unsupervised
+   supervised
+   dataTools
+   support
 
 
 Indices and tables

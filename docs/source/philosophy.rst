@@ -1,0 +1,2 @@
+Project philosophy & architecture
+=================================
