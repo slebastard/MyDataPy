@@ -11,9 +11,24 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 from scipy.spatial import distance_matrix
+from scipy.spatial.distance import cdist
 from scipy.stats import multivariate_normal
 from matplotlib.patches import Ellipse
 import math
+
+import time
+from cvxopt import matrix
+from cvxopt import solvers
+solvers.options['show_progress'] = False
+
+## Importing self-made fcts
+from metrics import *
+from kernels import *
+from kernelCore import *
+
+## Debugging
+import pdb
+
 
 ### Internal requirements ########################
 importlib.import_module('dataTools')
