@@ -84,10 +84,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../requirements.html">Project requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Project philosophy &amp; architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../unsupervised.html">Unsupervised methods - Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../supervised.html">Supervised methods - Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dataTools.html">Data manipulation tools - Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ML.html">Machine-learning methods - Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataTools.html">Data manipulation tools</a></li>
 </ul>
 
             
@@ -190,7 +188,7 @@
 
 <span class="c1">## K-MEANS ######################################</span>
 
-<div class="viewcode-block" id="Kmeans"><a class="viewcode-back" href="../unsupervised.html#unsupervised.Kmeans">[docs]</a><span class="k">class</span> <span class="nc">Kmeans</span><span class="p">:</span>
+<div class="viewcode-block" id="Kmeans"><a class="viewcode-back" href="../supervised.html#unsupervised.Kmeans">[docs]</a><span class="k">class</span> <span class="nc">Kmeans</span><span class="p">:</span>
   <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Standard K-means method</span>
 
@@ -277,7 +275,7 @@
       <span class="bp">self</span><span class="o">.</span><span class="n">centroids</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="n">W</span><span class="p">[:,</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">))</span>
 
       
-<div class="viewcode-block" id="Kmeans.run"><a class="viewcode-back" href="../unsupervised.html#unsupervised.Kmeans.run">[docs]</a>  <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Kmeans.run"><a class="viewcode-back" href="../supervised.html#unsupervised.Kmeans.run">[docs]</a>  <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes centroids position and cluster assignments until convergence</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -291,7 +289,7 @@
  
 
 
-<div class="viewcode-block" id="Kmeans.draw"><a class="viewcode-back" href="../unsupervised.html#unsupervised.Kmeans.draw">[docs]</a>  <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.8</span><span class="p">):</span>
+<div class="viewcode-block" id="Kmeans.draw"><a class="viewcode-back" href="../supervised.html#unsupervised.Kmeans.draw">[docs]</a>  <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.8</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Draws the current clustering in a new figure</span>
 
@@ -327,7 +325,7 @@
 
     
     
-<div class="viewcode-block" id="Kmeans.stats"><a class="viewcode-back" href="../unsupervised.html#unsupervised.Kmeans.stats">[docs]</a>  <span class="k">def</span> <span class="nf">stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Kmeans.stats"><a class="viewcode-back" href="../supervised.html#unsupervised.Kmeans.stats">[docs]</a>  <span class="k">def</span> <span class="nf">stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes intra-cluster distortion, inter-cluster distortion, quality estimation for clustering</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -363,7 +361,7 @@
 
 <span class="c1">## GAUSSIAN MIXTURE ###########################</span>
 
-<div class="viewcode-block" id="GaussianMixture"><a class="viewcode-back" href="../unsupervised.html#unsupervised.GaussianMixture">[docs]</a><span class="k">class</span> <span class="nc">GaussianMixture</span><span class="p">:</span>
+<div class="viewcode-block" id="GaussianMixture"><a class="viewcode-back" href="../supervised.html#unsupervised.GaussianMixture">[docs]</a><span class="k">class</span> <span class="nc">GaussianMixture</span><span class="p">:</span>
   <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  Instance for fitting gaussian mixtures to a dataset</span>
 
@@ -395,7 +393,7 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">isotropic</span> <span class="o">=</span> <span class="n">isotropic</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">pi</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span>
   
-<div class="viewcode-block" id="GaussianMixture.train"><a class="viewcode-back" href="../unsupervised.html#unsupervised.GaussianMixture.train">[docs]</a>  <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-4</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianMixture.train"><a class="viewcode-back" href="../supervised.html#unsupervised.GaussianMixture.train">[docs]</a>  <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-4</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    EM algorithm for estimating gaussian mixture parameters</span>
 
@@ -456,7 +454,7 @@
       
       
   
-<div class="viewcode-block" id="GaussianMixture.predict"><a class="viewcode-back" href="../unsupervised.html#unsupervised.GaussianMixture.predict">[docs]</a>  <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianMixture.predict"><a class="viewcode-back" href="../supervised.html#unsupervised.GaussianMixture.predict">[docs]</a>  <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Predicts cluster assignments from a dataset</span>
 
@@ -479,7 +477,7 @@
   
   
   
-<div class="viewcode-block" id="GaussianMixture.printResults"><a class="viewcode-back" href="../unsupervised.html#unsupervised.GaussianMixture.printResults">[docs]</a>  <span class="k">def</span> <span class="nf">printResults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_likelihoods</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianMixture.printResults"><a class="viewcode-back" href="../supervised.html#unsupervised.GaussianMixture.printResults">[docs]</a>  <span class="k">def</span> <span class="nf">printResults</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_likelihoods</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Print the learnt parameters after training and the evolution of the partial</span>
 <span class="sd">    log likelihood through time</span>
@@ -507,7 +505,7 @@
 
       
       
-<div class="viewcode-block" id="GaussianMixture.print_log_likelihood"><a class="viewcode-back" href="../unsupervised.html#unsupervised.GaussianMixture.print_log_likelihood">[docs]</a>  <span class="k">def</span> <span class="nf">print_log_likelihood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianMixture.print_log_likelihood"><a class="viewcode-back" href="../supervised.html#unsupervised.GaussianMixture.print_log_likelihood">[docs]</a>  <span class="k">def</span> <span class="nf">print_log_likelihood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Print the average value of (partial) log_likelihood</span>
 
@@ -528,7 +526,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))))</span></div>
       
       
-<div class="viewcode-block" id="GaussianMixture.draw"><a class="viewcode-back" href="../unsupervised.html#unsupervised.GaussianMixture.draw">[docs]</a>  <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<div class="viewcode-block" id="GaussianMixture.draw"><a class="viewcode-back" href="../supervised.html#unsupervised.GaussianMixture.draw">[docs]</a>  <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Prints data points, centroids and alineates the covariances matrices</span>
 
