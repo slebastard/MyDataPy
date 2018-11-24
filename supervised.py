@@ -25,6 +25,9 @@ import pdb
 ##################
 
 class kernelSVM(kernelMethod):
+    """
+    SVM instance, allowing for any kernel
+    """
     def __init__(self, lbda=0.1, solver='cvxopt'):
         self.lbda = lbda
         self.solver = solver
@@ -33,6 +36,9 @@ class kernelSVM(kernelMethod):
         self.kernel_fct = None
     
     def format_labels(self, labels):
+        """
+        Transform any binary system of labels into the +1/-1 equivalent system
+        """
         try:
             assert len(np.unique(labels)) == 2
         except AssertionError:
@@ -42,7 +48,9 @@ class kernelSVM(kernelMethod):
         return l
     
     def train(self, data, labels, **kwargs):
-        """Trains the kernel SVM on data and labels"""
+        """
+        Trains the kernel SVM on data and labels
+        """
         # Default kernel will be linear (only works in for finite-dim floats space)
         kernel_fct = get_from_KWargs(kwargs, 'kernel_fct', linear_prod)
         stringsData = get_from_KWargs(kwargs, 'stringsData', True)
@@ -100,6 +108,7 @@ class kernelSVM(kernelMethod):
 ##################
 
 class kernelKNN(kernelMethod):
+    """K-nearest neighbor instance, allowing for any kernel"""
     def __init__(self, k):
         self.k = k
 
@@ -130,6 +139,7 @@ def sigmoid(x):
     return z
 
 class kernelLogisticRegression(kernelMethod):
+    """Logistic regression instance, allowing for any kernel"""
     def __init__(self, lbda=0.1):
         self.lbda = lbda
         self.data = None

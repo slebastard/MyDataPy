@@ -84,20 +84,33 @@ def kfold(data, labels, n_folds, train_method, pred_method, classify_method, lab
     """
     Performs k-fold cross validation on your data, given a number of folds, a prediction and a classification method
 
-    Keyword arguments:
-    data -- N*p numpy array
-    labels -- N*1 numpy array
-    n_folds -- number of folds for cross-validation. Must be strictly greater than 1
-    train_method -- supervised method used for learning classifier. This is usually the learn function from a classifier object
-    pred_method -- prediction method used for learning classifier. This is usually the predict function from a classifier object
-    classify_method -- for classification problems, if pred_method outputs a continuous prediction as opposed to a discrete label prediction, this is the method you use for turning your continuous prediction into a label. This is usualy the classify function from a classifier object
-    labels_formatting -- the method you use to format your classified predictions so that performance can be measured
-    metric -- this is the performance metric you want to use to score the predictions of your algorithm
-    target_folds -- you can choose to run cross-validation only on a subset of the data, by providing a set of target_folds to run on as a list
-    verbose -- boolean, defaults True
-    kwargs -- Those are the keyword arguments that the training and prediction methods use
+    Parameters
+    ----------
+    data : N*p numpy array
+    labels : N*1 numpy array
+    n_folds : int
+        number of folds for cross-validation. Must be strictly greater than 1
+    train_method : str
+        supervised method used for learning classifier. This is usually the learn function from a classifier object
+    pred_method : str
+        prediction method used for learning classifier. This is usually the predict function from a classifier object
+    classify_method : str
+        for classification problems, if pred_method outputs a continuous prediction as opposed to a discrete label prediction, this is the method you use for turning your continuous prediction into a label. This is usualy the classify function from a classifier object
+    labels_formatting : str
+        the method you use to format your classified predictions so that performance can be measured
+    metric : str
+        this is the performance metric you want to use to score the predictions of your algorithm
+    target_folds : int
+        you can choose to run cross-validation only on a subset of the data, by providing a set of target_folds to run on as a list
+    verbose : boolean
+        defaults True
+    kwargs :
+        those are the keyword arguments that the training and prediction methods use
 
-    Returns: average of prediction scores across folds
+    Returns
+    -------
+    float
+        average of prediction scores across folds
     """
     try:
         assert n_folds > 1
@@ -161,13 +174,22 @@ class kernelMethod():
         """
         Trains the classifier based on @data, @labels and a @kernel_fct.
 
-        Keyword arguments:
-        data -- N*p numpy array
-        labels -- N*1 numpy array
-        kernel_fct -- optionnal, a method used to compute a kernel matrix from input data
-        solver -- optionnal, a numerical solver adapted to the task at hand
-        stringsData -- a boolean indicating if we are dealing with strings
-        kwargs -- additional keyword arguments, for instance that should be provided to the solver or the kernel function
+        Parameters
+        ::::::::-
+        data : N*p numpy array
+        labels : N*1 numpy array
+        kernel_fct :
+            optionnal, a method used to compute a kernel matrix from input data
+        solver :
+            optionnal, a numerical solver adapted to the task at hand
+        stringsData : boolean
+            indicating if we are dealing with strings
+        kwargs :
+            additional keyword arguments, for instance that should be provided to the solver or the kernel function
+        
+        Returns
+        :::-
+
         """
         pass
 

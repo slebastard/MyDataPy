@@ -156,6 +156,54 @@
             
   <div class="section" id="module-supervised">
 <span id="supervised-methods-documentation"></span><h1>Supervised methods - Documentation<a class="headerlink" href="#module-supervised" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="supervised.kernelKNN">
+<em class="property">class </em><code class="descclassname">supervised.</code><code class="descname">kernelKNN</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/supervised.html#kernelKNN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#supervised.kernelKNN" title="Permalink to this definition">¶</a></dt>
+<dd><p>K-nearest neighbor instance, allowing for any kernel</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="supervised.kernelLogisticRegression">
+<em class="property">class </em><code class="descclassname">supervised.</code><code class="descname">kernelLogisticRegression</code><span class="sig-paren">(</span><em>lbda=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/supervised.html#kernelLogisticRegression"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#supervised.kernelLogisticRegression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logistic regression instance, allowing for any kernel</p>
+<dl class="method">
+<dt id="supervised.kernelLogisticRegression.predict">
+<code class="descname">predict</code><span class="sig-paren">(</span><em>data</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/supervised.html#kernelLogisticRegression.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#supervised.kernelLogisticRegression.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict labels for data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="supervised.kernelLogisticRegression.train">
+<code class="descname">train</code><span class="sig-paren">(</span><em>data</em>, <em>labels</em>, <em>max_iter=10000</em>, <em>cvg_threshold=0.0001</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/supervised.html#kernelLogisticRegression.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#supervised.kernelLogisticRegression.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trains the kernel Logistic Regression on data and labels</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="supervised.kernelSVM">
+<em class="property">class </em><code class="descclassname">supervised.</code><code class="descname">kernelSVM</code><span class="sig-paren">(</span><em>lbda=0.1</em>, <em>solver='cvxopt'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/supervised.html#kernelSVM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#supervised.kernelSVM" title="Permalink to this definition">¶</a></dt>
+<dd><p>SVM instance, allowing for any kernel</p>
+<dl class="method">
+<dt id="supervised.kernelSVM.format_labels">
+<code class="descname">format_labels</code><span class="sig-paren">(</span><em>labels</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/supervised.html#kernelSVM.format_labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#supervised.kernelSVM.format_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform any binary system of labels into the +1/-1 equivalent system</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="supervised.kernelSVM.predict">
+<code class="descname">predict</code><span class="sig-paren">(</span><em>data</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/supervised.html#kernelSVM.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#supervised.kernelSVM.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict labels for data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="supervised.kernelSVM.train">
+<code class="descname">train</code><span class="sig-paren">(</span><em>data</em>, <em>labels</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/supervised.html#kernelSVM.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#supervised.kernelSVM.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trains the kernel SVM on data and labels</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 

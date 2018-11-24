@@ -156,6 +156,337 @@
             
   <div class="section" id="module-unsupervised">
 <span id="unsupervised-methods-documentation"></span><h1>Unsupervised methods - Documentation<a class="headerlink" href="#module-unsupervised" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="unsupervised.GaussianMixture">
+<em class="property">class </em><code class="descclassname">unsupervised.</code><code class="descname">GaussianMixture</code><span class="sig-paren">(</span><em>K</em>, <em>d</em>, <em>pi</em>, <em>mu</em>, <em>sigma</em>, <em>isotropic=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/unsupervised.html#GaussianMixture"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#unsupervised.GaussianMixture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instance for fitting gaussian mixtures to a dataset</p>
+<dl class="attribute">
+<dt id="unsupervised.GaussianMixture.K">
+<code class="descname">K</code><a class="headerlink" href="#unsupervised.GaussianMixture.K" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of clusters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="unsupervised.GaussianMixture.d">
+<code class="descname">d</code><a class="headerlink" href="#unsupervised.GaussianMixture.d" title="Permalink to this definition">¶</a></dt>
+<dd><p>dimension</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="unsupervised.GaussianMixture.isotropic">
+<code class="descname">isotropic</code><a class="headerlink" href="#unsupervised.GaussianMixture.isotropic" title="Permalink to this definition">¶</a></dt>
+<dd><p>true forces clusters to be spherical. Defaults to true</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="unsupervised.GaussianMixture.pi">
+<code class="descname">pi</code><a class="headerlink" href="#unsupervised.GaussianMixture.pi" title="Permalink to this definition">¶</a></dt>
+<dd><p>current estimate of the class variable probabilities. Initialized at train()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np.array, Kx1</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="unsupervised.GaussianMixture.mu">
+<code class="descname">mu</code><a class="headerlink" href="#unsupervised.GaussianMixture.mu" title="Permalink to this definition">¶</a></dt>
+<dd><p>current estimate of clusters first order momentum. Initialized at train()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np.array, Kxd</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="unsupervised.GaussianMixture.sigma">
+<code class="descname">sigma</code><a class="headerlink" href="#unsupervised.GaussianMixture.sigma" title="Permalink to this definition">¶</a></dt>
+<dd><p>current estimate of covaraince matrix. Initialized at train()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np.array, KxK</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="unsupervised.GaussianMixture.n">
+<code class="descname">n</code><a class="headerlink" href="#unsupervised.GaussianMixture.n" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of data points for linked dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="unsupervised.GaussianMixture.draw">
+<code class="descname">draw</code><span class="sig-paren">(</span><em>data</em>, <em>predictions</em>, <em>size=40</em>, <em>scale=0.8</em>, <em>eps=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/unsupervised.html#GaussianMixture.draw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#unsupervised.GaussianMixture.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints data points, centroids and alineates the covariances matrices</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>data</strong> (<em>np.array</em>) – input dataset. This is meant to be the dataset bound to this instance</li>
+<li><strong>predictions</strong> (<em>np.array</em>) – array of cluster assignments</li>
+<li><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – marker size</li>
+<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – to be refactorized. Do not use at the moment</li>
+<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">1, high : Refactorize scale parameters</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="unsupervised.GaussianMixture.predict">
+<code class="descname">predict</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/unsupervised.html#GaussianMixture.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#unsupervised.GaussianMixture.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts cluster assignments from a dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X</strong> (<em>np.array</em>) – nxd input dataset</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>predictions</strong> – cluster assignment, one per data point</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="unsupervised.GaussianMixture.printResults">
+<code class="descname">printResults</code><span class="sig-paren">(</span><em>log_likelihoods</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/unsupervised.html#GaussianMixture.printResults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#unsupervised.GaussianMixture.printResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the learnt parameters after training and the evolution of the partial
+log likelihood through time</p>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">This does not fit well into the package philosophy. To be refactorized</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="unsupervised.GaussianMixture.print_log_likelihood">
+<code class="descname">print_log_likelihood</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/unsupervised.html#GaussianMixture.print_log_likelihood"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#unsupervised.GaussianMixture.print_log_likelihood" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the average value of (partial) log_likelihood</p>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">This does not fit well into the package philosophy. To be refactorized</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="unsupervised.GaussianMixture.train">
+<code class="descname">train</code><span class="sig-paren">(</span><em>X</em>, <em>eps=0.0001</em>, <em>max_iter=10000</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/unsupervised.html#GaussianMixture.train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#unsupervised.GaussianMixture.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>EM algorithm for estimating gaussian mixture parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>X</strong> (<em>np.array</em>) – nxd dataset</li>
+<li><strong>eps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – stop threshold on change in log-likelihood</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – maximum number of iterations</li>
+<li><strong>verbose</strong> (<em>boolean</em>) – defaults to True</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="unsupervised.Kmeans">
+<em class="property">class </em><code class="descclassname">unsupervised.</code><code class="descname">Kmeans</code><span class="sig-paren">(</span><em>data</em>, <em>nClass</em>, <em>ind=0</em>, <em>init='def'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/unsupervised.html#Kmeans"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#unsupervised.Kmeans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standard K-means method</p>
+<dl class="attribute">
+<dt id="unsupervised.Kmeans.ind">
+<code class="descname">ind</code><a class="headerlink" href="#unsupervised.Kmeans.ind" title="Permalink to this definition">¶</a></dt>
+<dd><p>instance ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="unsupervised.Kmeans.data">
+<code class="descname">data</code><a class="headerlink" href="#unsupervised.Kmeans.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>the data bound to this instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np.array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="unsupervised.Kmeans.N">
+<code class="descname">N</code><a class="headerlink" href="#unsupervised.Kmeans.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of records</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="unsupervised.Kmeans.d">
+<code class="descname">d</code><a class="headerlink" href="#unsupervised.Kmeans.d" title="Permalink to this definition">¶</a></dt>
+<dd><p>dimension</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="unsupervised.Kmeans.K">
+<code class="descname">K</code><a class="headerlink" href="#unsupervised.Kmeans.K" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of clusters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="unsupervised.Kmeans.centroids">
+<code class="descname">centroids</code><a class="headerlink" href="#unsupervised.Kmeans.centroids" title="Permalink to this definition">¶</a></dt>
+<dd><p>current centroids. Only initialized at run</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np.array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="unsupervised.Kmeans.assignment">
+<code class="descname">assignment</code><a class="headerlink" href="#unsupervised.Kmeans.assignment" title="Permalink to this definition">¶</a></dt>
+<dd><p>maps every data point to a cluster ID</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np.array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="admonition-todo admonition" id="index-3">
+<p class="first admonition-title">Todo</p>
+<p>1, Low: Generalize this class to a kernel. Have the kernel bound to the instance from the initialization</p>
+<p class="last">2, Low: Allow for the data to be reset</p>
+</div>
+<dl class="method">
+<dt id="unsupervised.Kmeans.draw">
+<code class="descname">draw</code><span class="sig-paren">(</span><em>size=40</em>, <em>scale=0.8</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/unsupervised.html#Kmeans.draw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#unsupervised.Kmeans.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws the current clustering in a new figure</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – marker size. Defaults to 40</li>
+<li><strong>scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – needs rework. Do not use right now</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-todo admonition" id="index-4">
+<p class="first admonition-title">Todo</p>
+<p class="last">Change scale integration</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="unsupervised.Kmeans.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/unsupervised.html#Kmeans.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#unsupervised.Kmeans.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes centroids position and cluster assignments until convergence</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="unsupervised.Kmeans.stats">
+<code class="descname">stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/unsupervised.html#Kmeans.stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#unsupervised.Kmeans.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes intra-cluster distortion, inter-cluster distortion, quality estimation for clustering</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
