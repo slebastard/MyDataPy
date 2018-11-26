@@ -6,4 +6,4 @@ This is a Python library conceived for personnal training and development of exp
 The goal is to put all my ML code in a specific place for further use in personnal projects.
 
 ## Documentation
-For a full documentation of the functions in this package, see https://mydatapy.readthedocs.io
+For a full documentation of the functions in this package, see https://datapy.readthedocs.io
